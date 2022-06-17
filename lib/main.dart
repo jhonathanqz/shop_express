@@ -1,17 +1,22 @@
 import 'dart:async';
 
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:shop_express/app/app.dart';
+import 'package:shop_express/app/injection_container.dart';
+
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupDependencies();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    const MyApp(),
+    const App(),
   );
 }
 
