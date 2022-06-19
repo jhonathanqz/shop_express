@@ -31,7 +31,7 @@ class DatabaseRepositoryImpl implements DatabaseRepository {
 
   @override
   Future<void> deleteProduct({
-    required int uuid,
+    required String uuid,
   }) async {
     try {
       await databaseProvider.deleteProduct(
@@ -49,6 +49,28 @@ class DatabaseRepositoryImpl implements DatabaseRepository {
     try {
       await databaseProvider.saveProduct(
         product: product,
+      );
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> initProducts() async {
+    try {
+      await databaseProvider.initProducts();
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> deleteAllProducts({
+    required List<Product> productList,
+  }) async {
+    try {
+      await databaseProvider.deleteAllProducts(
+        productList: productList,
       );
     } catch (_) {
       rethrow;
