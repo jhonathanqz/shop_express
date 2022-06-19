@@ -1,9 +1,10 @@
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+
+import 'package:equatable/equatable.dart';
 
 @immutable
 class Product extends Equatable {
-  final int uuid;
+  final String uuid;
   final String title;
   final String description;
   final String type;
@@ -12,6 +13,8 @@ class Product extends Equatable {
   final double width;
   final double price;
   final int rating;
+  final String createdAt;
+  final String updatedAt;
 
   const Product({
     required this.uuid,
@@ -23,10 +26,12 @@ class Product extends Equatable {
     required this.width,
     required this.price,
     required this.rating,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   Product copyWith({
-    int? uuid,
+    String? uuid,
     String? title,
     String? description,
     String? type,
@@ -35,6 +40,8 @@ class Product extends Equatable {
     double? width,
     double? price,
     int? rating,
+    String? createdAt,
+    String? updatedAt,
   }) =>
       Product(
         uuid: uuid ?? this.uuid,
@@ -46,6 +53,8 @@ class Product extends Equatable {
         width: width ?? this.width,
         price: price ?? this.price,
         rating: rating ?? this.rating,
+        createdAt: createdAt ?? this.createdAt,
+        updatedAt: updatedAt ?? this.updatedAt,
       );
 
   @override
@@ -59,5 +68,7 @@ class Product extends Equatable {
         width,
         price,
         rating,
+        createdAt,
+        updatedAt,
       ];
 }

@@ -1,4 +1,3 @@
-import 'package:shop_express/domain/entities/product.dart';
 import 'package:shop_express/domain/repositories/database_repository.dart';
 
 class DeleteProductUseCase {
@@ -7,7 +6,7 @@ class DeleteProductUseCase {
   DeleteProductUseCase({required this.databaseRepository});
 
   Future<void> call({
-    required int uuid,
+    required String uuid,
   }) async {
     try {
       await databaseRepository.deleteProduct(
