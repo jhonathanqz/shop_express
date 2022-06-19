@@ -24,6 +24,8 @@ run-ios: ## Open xcode from build run
 ###
 # Build section
 ###
+device-ip: ## Connect device with ip
+	scrcpy --tcpip=192.168.0.122:6666
 mobx: ## BuildRunner mobx
 	flutter packages pub run build_runner build --delete-conflicting-outputs 
 build-apk: ## Build an APK of any app with flavor name. e.g. make build base

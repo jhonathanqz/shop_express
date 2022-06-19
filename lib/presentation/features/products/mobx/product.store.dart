@@ -185,9 +185,10 @@ abstract class ProductBase with Store {
       isLoading = true;
 
       await initProductUseCase.call();
-      await getProducts();
 
       isLoading = false;
+
+      isProductUpdatedFunction = true;
     } catch (e) {
       isLoading = false;
     }
@@ -202,9 +203,9 @@ abstract class ProductBase with Store {
       await deleteAllProductsUseCase.call(
         productList: products,
       );
-      await getProducts();
 
       isLoading = false;
+      isProductUpdatedFunction = true;
     } catch (e) {
       isLoading = false;
     }
